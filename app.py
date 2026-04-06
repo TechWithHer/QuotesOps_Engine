@@ -4,9 +4,11 @@ import random
 app = Flask(__name__)
 
 # Home route (your UI)
+
 @app.route("/")
 def home():
-    return "index.html"
+    quote = get_random_quote()
+    return render_template("index.html", quote=quote)
 
 # Health check route
 @app.route("/health", methods=["GET"])
