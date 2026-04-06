@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Motivational Quotes</title>
+</head>
+<body>
+    <h1>Random Motivational Quote</h1>
+
+    <p id="quote">Loading...</p>
+
+    <button onclick="getQuote()">New Quote</button>
+
+    <script>
+        function getQuote() {
+            fetch("/api")
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("quote").innerText = data.quote;
+                });
+        }
+
+        // Load first quote on page load
+        getQuote();
+    </script>
+</body>
+</html>
