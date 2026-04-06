@@ -81,3 +81,15 @@ button:hover {
     transform: scale(1.05);
 }
 
+.tagline {
+  color: #666;
+  font-style: italic;
+}
+
+.badges span {
+  background: #eee;
+  padding: 4px 8px;
+  margin-right: 5px;
+  border-radius: 6px;
+  font-size: 12px;
+}
