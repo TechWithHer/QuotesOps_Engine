@@ -1,70 +1,142 @@
-# Java Motivational Quotes App
 
-This project is a simple Java-based HTTP server that serves random motivational quotes via a REST API. The quotes are externalized to a `quotes.txt` file for easy customization.
+# QuotesOps Engine
 
-## Features
-- Serves random motivational quotes in JSON format.
-- Uses an external `quotes.txt` file for configurable quotes.
-- Lightweight HTTP server using `com.sun.net.httpserver.HttpServer`.
-- Dockerized for easy deployment.
+QuotesOps is a lightweight web application that generates fun DevOps-themed quotes.  
+It is designed as a simple containerized project to demonstrate Docker-based application packaging and execution.
 
-## Requirements
-- Java 17+
-- Maven (if building from source)
-- Docker (optional, for containerized deployment)
+---
 
-## Setup and Usage
+## 📌 What this project does
 
-### Running Locally
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/LondheShubham153/java-quotes-app.git
-   cd java-quotes-app
-   ```
-2. Ensure `quotes.txt` exists in the project directory and contains quotes (one per line).
-3. Compile and run the application:
-   ```sh
-   javac src/Main.java -d out
-   java -cp out Main
-   ```
-4. The server will start on `http://localhost:8000/`.
-5. Test the API using:
-   ```sh
-   curl http://localhost:8000/
-   ```
+QuotesOps serves random DevOps-inspired quotes through a simple web interface.  
+It is built to stay minimal, easy to run, and fully containerized so it behaves consistently across environments.
 
-### Running with Docker
-1. Build the Docker image:
-   ```sh
-   docker build -t motivational-quotes-api .
-   ```
-2. Run the container:
-   ```sh
-   docker run -p 8000:8000 motivational-quotes-api
-   ```
-3. Access the API at `http://localhost:8000/`.
+---
 
-## File Structure
-```
-project-root/
-│── src/
-│   └── Main.java
-│── quotes.txt
-│── Dockerfile
-│── README.md
-│── target/
-│   └── myapp.jar (if using Maven build)
+## 🧱 Tech Stack
+
+- Python (Flask or lightweight HTTP server)
+- HTML / CSS
+- Docker
+
+---
+
+## 🐳 Running with Docker (Recommended)
+
+This project is fully containerized. You do not need to install Python or dependencies manually.
+
+### 1. Build the Docker image
+
+```bash
+docker build -t quotesops .
+````
+---
+
+### 2. Run the container
+
+```bash
+docker run -p 8000:8000 quotesops
 ```
 
-## Customizing Quotes
-To customize the quotes, edit `quotes.txt` and restart the application. Each quote should be on a new line.
+---
 
-## License
-This project is licensed under the MIT License.
+### 3. Access the application
 
-## Author
-Created and Modified By:
-Inspired By 
-[TrainWithShubham](https://github.com/LondheShubham153)
+Open your browser and go to:
 
+```
+http://localhost:8000
+```
+
+---
+
+## 🩺 Health Check
+
+The application exposes a simple health endpoint to verify the service is running:
+
+```
+GET /health
+```
+
+Example response:
+
+```json
+{
+  "status": "ok",
+  "service": "quotesops"
+}
+```
+
+---
+
+## 📦 Project Structure
+
+```
+quotesops/
+│
+├── app.py              # Main application logic
+├── quotes.txt          # Source of quotes
+├── templates/
+│   └── index.html      # UI layer
+├── static/
+│   └── style.css       # Styling
+├── Dockerfile          # Container configuration
+└── README.md
+```
+
+---
+
+## ⚙️ Why Docker is used
+
+This project is intentionally designed around Docker to demonstrate:
+
+* Environment consistency across systems
+* Simple and reproducible setup
+* Isolation of dependencies
+* Easy deployment without manual setup steps
+
+With Docker, the application runs the same way on any machine that supports containers.
+
+---
+
+## 🚀 How it works (simple overview)
+
+1. Docker builds the image using the Dockerfile
+2. Python app runs inside the container
+3. Web interface is exposed on port `8000`
+4. Quotes are served dynamically from a text file
+
+---
+
+## Reference Images 
+
+![QuotesOps Screenshot](https://via.placeholder.com/600x400?text=QuotesOps+Screenshot)
+
+![QuotesOps Screenshot](https://via.placeholder.com/600x400?text=QuotesOps+Screenshot)
+
+
+## 🎯 Purpose of this project
+
+QuotesOps is built as a small experimental project to practice:
+
+* Containerization using Docker
+* Basic web application structure
+* Lightweight backend + frontend integration
+
+---
+
+## 🧼 Notes
+
+* This is a lightweight demo project
+* No external database is used
+* Quotes are stored in a simple text file for simplicity
+* Designed for learning and experimentation
+
+---
+
+## 📜 License
+
+This project is for learning and personal experimentation purposes.
+
+```
 

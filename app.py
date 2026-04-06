@@ -1,9 +1,9 @@
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify
 import random
 
 app = Flask(__name__)
 
-# Load quotes once (like Java static load)
+# Load quotes once
 def load_quotes():
     try:
         with open("quotes.txt", "r") as f:
@@ -17,28 +17,33 @@ quotes = load_quotes()
 if not quotes:
     print("No quotes found in quotes.txt")
 
-# Get random quote (like your Java method)
+
 def get_random_quote():
     return random.choice(quotes)
 
-# Root → HTML page
+
+# Home route
 @app.route("/")
 def home():
-    return render_template("index.html")
-
-# API endpoint → JSON response
-@app.route("/api")
-def api():
-    quote = get_random_quote()
-    return jsonify({"quote": quote})
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8000, debug=True)
+    return "QuotesOps is running 🚀"
 
 
+# Health check route
 @app.route("/health")
 def health():
     return jsonify({
         "status": "ok",
         "service": "quotesops"
-    }), 200
+    })
+
+
+# API endpoint
+@app.route("/api")
+def api():
+    quote = get_random_quote()
+    return jsonify({"quote": quote})
+
+
+# 🔥 ONLY ONE app.run
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8000, debug=True)
