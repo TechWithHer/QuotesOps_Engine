@@ -1,26 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Motivational Quotes</title>
+    <meta charset="UTF-8">
+    <title>TechWithHer Quotes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
-    <h1>Random Motivational Quote</h1>
 
-    <p id="quote">Loading...</p>
+    <div class="container">
 
-    <button onclick="getQuote()">New Quote</button>
+        <!-- Header -->
+        <header class="header">
+            <h1 class="logo">#TechWithHer</h1>
+            <p class="tagline">Deploy. Automate. Laugh. Repeat.</p>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <h2>Welcome to Quotes App 🚀</h2>
+            <p>
+                A DevOps-inspired quote engine that serves sarcastic, intelligent,
+                and chaos-driven humor for engineers who live in pipelines, YAML, and outages.
+            </p>
+        </section>
+
+        <!-- Quote Box -->
+        <div class="quote-box">
+            <h3>💬 DevOps Wisdom</h3>
+            <p id="quote">Click below to generate a quote...</p>
+
+            <button onclick="getQuote()">Generate Quote</button>
+        </div>
+
+    </div>
 
     <script>
         function getQuote() {
-            fetch("/api")
+            fetch('/api')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById("quote").innerText = data.quote;
                 });
         }
-
-        // Load first quote on page load
-        getQuote();
     </script>
+
 </body>
 </html>

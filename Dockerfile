@@ -13,7 +13,7 @@ WORKDIR /app
 COPY . .
 
 # Compile the Java code
-RUN app.py
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose port 8000 for the HTTP server
 EXPOSE 8000
