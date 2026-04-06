@@ -1,5 +1,5 @@
-# Use the official OpenJDK 17 image as the base image
-FROM openjdk:17-jdk-alpine
+# Use the official Python image as the base image
+FROM python:3.8-alpine
 
 # Set metadata
 LABEL maintainer="ayushi.singh.sg@gmail.com"
@@ -10,15 +10,13 @@ LABEL description="A Quote of the Day HTTP Server implemented in Java"
 WORKDIR /app
 
 # Copy the source code into the container
-COPY src/Main.java /app/Main.java
-
-COPY quotes.txt quotes.txt
+COPY . .
 
 # Compile the Java code
-RUN javac Main.java
+RUN app.py
 
 # Expose port 8000 for the HTTP server
 EXPOSE 8000
 
 # Run the Java application when the container starts
-CMD ["java", "Main"]
+CMD ["python", "app.py"]
