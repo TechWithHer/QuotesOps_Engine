@@ -140,5 +140,5 @@ QuotesOps is built as a small experimental project to practice:
 
 This project is for learning and personal experimentation purposes.
 
-```
-
+#Authors 
+This project was initially forked from [[TrainWithShubham]](https://github.com/LondheShubham153/java-quotes-app), and I adapted it for my own use. Special thanks to TrainWithShubham for the original foundation.
