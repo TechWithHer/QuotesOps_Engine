@@ -110,11 +110,11 @@ With Docker, the application runs the same way on any machine that supports cont
 
 ## Reference Images 
 
-![QuotesOps Screenshot]((https://github.com/TechWithHer/QuotesOps_Engine/blob/master/screenshot/ss.png))
+![QuotesOps Screenshot](https://github.com/TechWithHer/QuotesOps_Engine/blob/master/screenshot/ss.png)
 
-![QuotesOps Screenshot]((https://github.com/TechWithHer/QuotesOps_Engine/blob/master/screenshot/ss0.png))
+![QuotesOps Screenshot](https://github.com/TechWithHer/QuotesOps_Engine/blob/master/screenshot/ss0.png)
 
-![QuotesOps Screenshot]((https://github.com/TechWithHer/QuotesOps_Engine/blob/master/screenshot/ss0.png))
+![QuotesOps Screenshot](https://github.com/TechWithHer/QuotesOps_Engine/blob/master/screenshot/ss0.png)
 
 
 ## 🎯 Purpose of this project
