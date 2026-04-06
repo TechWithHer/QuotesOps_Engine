@@ -3,26 +3,7 @@ import random
 
 app = Flask(__name__)
 
-# Home route (your UI)
-
-@app.route("/")
-def home():
-    quote = get_random_quote()
-    return render_template("index.html", quote=quote)
-
-# Health check route
-@app.route("/health", methods=["GET"])
-def health():
-    return jsonify({
-        "status": "ok",
-        "service": "quotesops"
-    }), 200
-
-# IMPORTANT: host must be 0.0.0.0 for Docker
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8000)
-
-# Load quotes once (like Java static load)
+# -------- LOAD DATA FIRST --------
 def load_quotes():
     try:
         with open("quotes.txt", "r") as f:
@@ -36,14 +17,31 @@ quotes = load_quotes()
 if not quotes:
     print("No quotes found in quotes.txt")
 
-# Get random quote (like your Java method)
 def get_random_quote():
-    return random.choice(quotes)
+    return random.choice(quotes) if quotes else "No quotes available"
 
 
-# API endpoint → JSON response
+# -------- ROUTES --------
+@app.route("/")
+def home():
+    quote = get_random_quote()
+    return render_template("index.html", quote=quote)
+
+
+@app.route("/health")
+def health():
+    return jsonify({
+        "status": "ok",
+        "service": "quotesops"
+    })
+
+
 @app.route("/api")
 def api():
     quote = get_random_quote()
     return jsonify({"quote": quote})
 
+
+# -------- RUN APP --------
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8000, debug=True)
