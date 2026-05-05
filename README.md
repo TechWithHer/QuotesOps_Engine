@@ -1,8 +1,8 @@
 
-# QuotesOps Engine
+# QuotesOps Engine 
 
 QuotesOps is a lightweight web application that generates fun DevOps-themed quotes.  
-It is designed as a simple containerized project to demonstrate Docker-based application packaging and execution.
+It is designed as a simple containerized project to demonstrate Docker-based application packaging and execution. I have also used Jenkins for CI/CD pipeline creation. 
 
 ---
 
@@ -18,6 +18,7 @@ It is built to stay minimal, easy to run, and fully containerized so it behaves 
 - Python (Flask or lightweight HTTP server)
 - HTML / CSS
 - Docker
+- Jenkins
 
 ---
 
@@ -25,7 +26,7 @@ It is built to stay minimal, easy to run, and fully containerized so it behaves 
 
 This project is fully containerized. You do not need to install Python or dependencies manually.
 
-### 1. Build the Docker image
+### 1. Build the Docker image (if running on local machine) / Else first clone this repository in your VM and then start with this step. 
 
 ```bash
 docker build -t quotesops .
@@ -81,21 +82,25 @@ quotesops/
 ├── static/
 │   └── style.css       # Styling
 ├── Dockerfile          # Container configuration
+├── Jenkinsfile         #CICD 
 └── README.md
 ```
 
 ---
 
-## ⚙️ Why Docker is used
+## ⚙️ Why Docker and Jenkins are used
 
-This project is intentionally designed around Docker to demonstrate:
+This project is intentionally designed around Docker and Jenkins to demonstrate:
 
 * Environment consistency across systems
 * Simple and reproducible setup
 * Isolation of dependencies
 * Easy deployment without manual setup steps
+* CI/CD Automation using Jenkins
+* Setting up and executing pipelines on Jenkins platform 
 
 With Docker, the application runs the same way on any machine that supports containers.
+With Jenkins, automation is easy!
 
 ---
 
@@ -105,6 +110,7 @@ With Docker, the application runs the same way on any machine that supports cont
 2. Python app runs inside the container
 3. Web interface is exposed on port `8000`
 4. Quotes are served dynamically from a text file
+5. Any changes done on the website is build, tested and deployed continiously by Jenkins 
 
 ---
 
@@ -124,6 +130,7 @@ QuotesOps is built as a small experimental project to practice:
 * Containerization using Docker
 * Basic web application structure
 * Lightweight backend + frontend integration
+* Understanding and basics of Jenkins 
 
 ---
 
