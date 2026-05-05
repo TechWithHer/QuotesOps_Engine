@@ -6,7 +6,6 @@ pipeline {
             steps {
                 echo 'Building Application...'
                 sh 'docker build -t quotesops .'
-'
             }
         }
 
