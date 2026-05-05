@@ -5,7 +5,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building Application...'
-                sh 'docker build -t ayushi/sample-app:v1 .'
+                sh 'docker build -t quotesops .'
+'
             }
         }
 
@@ -19,7 +20,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying Container...'
-                sh 'docker run -d -p 8081:80 --name sample-app-container ayushi/sample-app:v1'
+                sh 'docker run -d -p 8000:8000 quotesops'
             }
         }
     }
